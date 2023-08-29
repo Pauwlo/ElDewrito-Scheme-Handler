@@ -8,12 +8,14 @@ namespace ElDewritoSchemeHandler
 {
     public partial class App : Application
     {
+
         public void OnStartup(object sender, StartupEventArgs e)
         {
             string query = ParseArgs(e.Args);
             string eldewritoPath = GetElDewritoPath();
+            string arguments = GetUserArguments();
 
-            StartGame(eldewritoPath, query);
+            StartGame(eldewritoPath, query, arguments);
 
             Environment.Exit(0);
         }
@@ -71,11 +73,16 @@ namespace ElDewritoSchemeHandler
             return eldewritoPath;
         }
 
-        public void StartGame(string path, string query)
+        public static string GetUserArguments()
+        {
+            return ElDewritoSchemeHandler.Properties.Settings.Default.CommandLineArguments;
+        }
+
+        public void StartGame(string path, string query, string arguments)
         {
             Process p = new Process();
             p.StartInfo.FileName = path;
-            p.StartInfo.Arguments = $"-connect {query}";
+            p.StartInfo.Arguments = $"-connect {query} {arguments}";
             p.StartInfo.UseShellExecute = false;
 
             p.Start();
