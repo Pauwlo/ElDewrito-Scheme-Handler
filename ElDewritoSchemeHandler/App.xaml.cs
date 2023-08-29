@@ -1,6 +1,5 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
@@ -40,7 +39,7 @@ namespace ElDewritoSchemeHandler
 
         public string GetElDewritoPath()
         {
-            string? eldewritoPath = ConfigurationManager.AppSettings.Get("ElDewritoPath");
+            string? eldewritoPath = ElDewritoSchemeHandler.Properties.Settings.Default.ElDewritoPath;
 
             if (File.Exists(eldewritoPath))
             {
@@ -66,11 +65,8 @@ namespace ElDewritoSchemeHandler
             eldewritoPath = eldoradoDialog.FileName;
 
             // Update configuration file
-            Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            configuration.AppSettings.Settings["ElDewritoPath"].Value = eldewritoPath;
-            configuration.Save();
-
-            ConfigurationManager.RefreshSection("appSettings");
+            ElDewritoSchemeHandler.Properties.Settings.Default.ElDewritoPath = eldewritoPath;
+            ElDewritoSchemeHandler.Properties.Settings.Default.Save();
 
             return eldewritoPath;
         }
