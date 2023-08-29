@@ -1,0 +1,24 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+	<Fragment>
+		<ComponentGroup Id="MainComponents" Directory="INSTALLFOLDER">
+			<Component Guid="2351f44c-561b-43f0-8fa8-37078657ad4e">
+				<File Source="ElDewritoSchemeHandler.dll" />
+				<File Source="ElDewritoSchemeHandler.dll.config" />
+				<File Source="ElDewritoSchemeHandler.exe" />
+				<File Source="ElDewritoSchemeHandler.runtimeconfig.json" />
+
+				<RegistryKey Root="HKCR" Key="eldewrito">
+					<RegistryKey Key="shell">
+						<RegistryKey Key="open">
+							<RegistryKey Key="command">
+								<RegistryValue Type="string" Value='"C:\Program Files\ElDewrito Scheme Handler\ElDewritoSchemeHandler.exe" "%1"'/>
+							</RegistryKey>
+						</RegistryKey>
+					</RegistryKey>
+
+					<RegistryValue Type="string" Name="URL Protocol" Value=""/>
+				</RegistryKey>
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>
