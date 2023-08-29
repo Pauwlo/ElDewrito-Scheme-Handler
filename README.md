@@ -2,7 +2,15 @@
 
 This is a small utility that registers a new `eldewrito://` scheme on Windows.
 
-The goal is to run ElDewrito and automatically join a specified server, by clicking on a URI like [eldewrito://allsafe.pauwlo.fr:11720/](eldewrito://allsafe.pauwlo.fr:11720/).
+The goal is to run ElDewrito and automatically join a specified server, by clicking on a URI like `eldewrito://allsafe.pauwlo.fr:11720`.
+
+## Installation
+
+Download the [latest release](https://github.com/Pauwlo/ElDewrito-Scheme-Handler/releases/latest).
+
+Extract the ZIP content somewhere, and run `Setup.msi`.
+
+**You're all set!** There is no success message, you can now click on `eldewrito://` links like the ones on [PlebBrowser](http://eldewrito.pauwlo.fr/). :)
 
 ## How it works
 
